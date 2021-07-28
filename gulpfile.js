@@ -43,6 +43,7 @@ let {src, dest}   = require('gulp'),
     autoprefixer  = require('gulp-autoprefixer')
     beautify      = require('gulp-beautify')
     replacequotes = require('gulp-replace-quotes')
+    webp          = require('gulp-webp')
 
 
 
@@ -115,6 +116,11 @@ function css()
 function img()
 {
     return src(path.src.img)
+        .pipe(webp(
+                {
+                    quality: 100,
+                    lossless: true
+                }))
         .pipe(dest(path.build.img))
         .pipe(browsersync.stream())
 }
