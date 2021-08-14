@@ -1,7 +1,17 @@
-@mixin breakpoint($bp)
+@mixin breakpoint($bp, $is_mobile:false)
 {
-    @media(max-width: map-get($bps, $bp))
+    @if($is_mobile)
     {
-        @content;
+        @media(min-width: map-get($bps, $bp))
+        {
+            @content;
+        }
+    }
+    @else
+    {
+        @media(max-width: map-get($bps, $bp))
+        {
+            @content;
+        }
     }
 }
