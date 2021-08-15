@@ -1,3 +1,29 @@
-@import 'config';
-@import 'mixins';
+@use 'sass:math' as *;
 
+@use 'config' as *;
+@use 'mixins' as *;
+@use 'header' as *;
+@use 'footer' as *;
+
+.page_wrapper
+{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    max-width: $wrapper-width;
+
+    @include breakpoint(pw)
+    {
+        max-width: calc(#{div($wrapper-width, $page-width) * 100%} - #{$wrapper-padding * 2});
+        padding: 0 $wrapper-padding;
+    }
+    margin: 0 auto;
+
+
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    display: inline-block;
+}

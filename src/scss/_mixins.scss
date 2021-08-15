@@ -1,3 +1,5 @@
+@use 'config' as *;
+
 @mixin breakpoint($bp, $is_mobile:false)
 {
     @if($is_mobile)
