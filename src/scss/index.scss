@@ -5,6 +5,19 @@
 @use 'header' as *;
 @use 'footer' as *;
 
+body
+{
+    color: var(--main-color);
+    font-family: var(--main-font);
+    font-size: var(--main-font-size);
+    background: var(--bg-color);
+
+    @include isMobile
+    {
+        -webkit-tap-highlight-color: transparent;
+    }
+}s
+
 .page_wrapper
 {
     min-height: 100vh;
