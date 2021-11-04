@@ -18,11 +18,16 @@ body
     }
 }s
 
-.page_wrapper
+.page__wrapper
 {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+.page__content
+{
+
 }
 
 .wrapper
