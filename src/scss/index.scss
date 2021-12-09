@@ -5,44 +5,61 @@
 @use 'header' as *;
 @use 'footer' as *;
 
+*
+{
+    scroll-behavior: smooth;
+}
+
+*,*::before,*::after
+{
+    box-sizing: border-box;
+}
+
 body
 {
     color: var(--main-color);
     font-family: var(--main-font);
     font-size: var(--main-font-size);
+    font-weight: var(--main-font-weight);
+    line-height: var(--main-line-height);
     background: var(--bg-color);
 
     @include isMobile
     {
         -webkit-tap-highlight-color: transparent;
     }
-}s
+}
 
-.page__wrapper
+a
+{
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--main-transition-time) var(--main-transition-type);
+
+    &:hover
+    {
+        color: var(--accent-color)
+    }
+}
+
+.page_wrapper
 {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-.page__content
-{
-
-}
-
 .wrapper
 {
-    max-width: $wrapper-width;
+    max-width: calc(#{$wrapper-width} + (#{$wrapper-padding} * 2));
+    padding: 0 $wrapper-padding;
 
-    @include breakpoint(pw)
-    {
-        max-width: calc(#{div($wrapper-width, $page-width) * 100%} - #{$wrapper-padding * 2});
-        padding: 0 $wrapper-padding;
-    }
     margin: 0 auto;
 }
 
 h1,h2,h3,h4,h5,h6
 {
-    display: inline-block;
+    display: block;
+    padding: 0;
+    margin: 0;
 }

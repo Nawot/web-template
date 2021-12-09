@@ -1,7 +1,7 @@
 // Design properties. Unique for each project 
 $page-width:      1600px;
-$wrapper-padding: 4px;
-$wrapper-width:   1300px;
+$wrapper-padding: 10px;
+$wrapper-width:   1200px;
 
 :root
 {
@@ -11,8 +11,13 @@ $wrapper-width:   1300px;
     --main-color: #2B2B2B;
 
 
-    --main-font: Roboto;
+    --main-font: 'Roboto';
     --main-font-size: 16px;
+    --main-font-weight: 400;
+    --main-line-height: 19px;
+
+    --main-transition-time: 0.5s;
+    --main-transition-type: cubic-bezier(0.23, 1, 0.32, 1)
 }
 
 $bps:
