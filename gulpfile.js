@@ -6,6 +6,7 @@ let path        =
     build: 
     {
         html:  dist_folder+'/',
+        pug:   dist_folder+'/',
         php:   dist_folder+'/',
         css:   dist_folder+'/css/',
         js:    dist_folder+'/js/',
@@ -16,6 +17,7 @@ let path        =
     src: 
     {
         html:  [src_folder+'/html/**/*.html', '!'+src_folder+'/html/**/_*.html'],
+        pug:   [src_folder+'/pug/**/*.pug', '!'+src_folder+'/pug/**/_*.pug'],
         php:   [src_folder+'/php/**/*.php', '!'+src_folder+'/php/**/_*.php'],
         css:   [src_folder+'/scss/**/*.scss', '!'+src_folder+'/scss/**/_*.scss'],
         js:    [src_folder+'/js/**/*.js', '!'+src_folder+'/js/**/_*.js'],
@@ -27,6 +29,7 @@ let path        =
     watch: 
     {
         html:  src_folder+'/html/**/*.html',
+        pug:   src_folder+'/pug/**/*.pug',
         php:   src_folder+'/php/**/*.php',
         css:   src_folder+'/scss/**/*.scss',
         js:    src_folder+'/js/**/*.js',
@@ -50,6 +53,7 @@ let {src, dest}   = require('gulp'),
     replacequotes = require('gulp-replace-quotes')
     webp          = require('gulp-webp')
     gulpif        = require('gulp-if')
+    gulp_pug           = require('gulp-pug')
 
 
 let usePHP = false
@@ -104,6 +108,25 @@ function html()
             })
         ))
         .pipe(dest(path.build.html))
+        .pipe(browsersync.stream())
+}
+
+function pug()
+{
+    return src(path.src.pug)
+    .pipe(gulp_pug(
+    {
+        // indent: true
+    }))
+        .pipe(replacequotes())
+        .pipe(gulpif(
+            usePHP,
+            rename(
+            {
+                extname: '.php'
+            })
+        ))
+        .pipe(dest(path.build.pug))
         .pipe(browsersync.stream())
 }
 
@@ -182,6 +205,7 @@ function fonts()
 function watchForFiles()
 {
     gulp.watch([path.watch.html], html)
+    gulp.watch([path.watch.pug], pug)
     gulp.watch([path.watch.php], php)
     gulp.watch([path.watch.js], js)
     gulp.watch([path.watch.css], css)
@@ -193,10 +217,11 @@ function clean()
     return del(path.clean)
 }
 
-let build = gulp.series(clean, gulp.parallel(html, php, js, css, img, fonts))
+let build = gulp.series(clean, gulp.parallel(html, pug, php, js, css, img, fonts))
 let watch = gulp.parallel(build, watchForFiles, browserUpdate)
 
 exports.html    = html
+exports.pug     = pug
 exports.php     = php
 exports.css     = css
 exports.js      = js
