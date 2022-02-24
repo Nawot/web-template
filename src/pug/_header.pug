@@ -5,3 +5,10 @@ header.header
             .header__top
                 a.logo(href='#')
                     img.logo__img(src='/img/logo.svg' alt='logo')
+ 
+                nav.header__nav
+                    - var nav = ['Main', 'What is me?'];
+                    ul.nav__list
+                        each value in nav
+                            li.nav__item
+                                a.nav__link(href='#') #{value}
