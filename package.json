@@ -13,5 +13,8 @@
     "gulp-sass": "^5.0.0",
     "gulp-webp": "^4.0.0",
     "sass": "^1.35.2"
+  },
+  "dependencies": {
+    "gulp-pug": "^5.0.0"
   }
 }

@@ -1,0 +1,11 @@
+extend _base
+append vars
+    - lang = 'en'
+    - title = 'I\'m template'
+block content
+    include _header
+    main.main
+        section.hero(style='margin: 30px 0;')
+            .wrapper
+                h1 Hi, I'm a template!
+    include _footer
