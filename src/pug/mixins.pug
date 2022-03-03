@@ -1,0 +1,14 @@
+mixin logo
+    a.logo(href='/')
+        img.logo__img(src='/img/logo.svg')
+
+
+mixin breadcrumbs(data_array)
+    ul.breadcrumbs
+        for data in data_array
+            - let name = data.name != null ? data.name : 'Главная'
+            - let link = data.link != null ? data.link : '#'
+
+            li.breadcrumbs__item
+                a.breadcrumbs__link(href=link) #{name}
+
