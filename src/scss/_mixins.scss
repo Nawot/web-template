@@ -25,3 +25,15 @@
         @content;
     }
 }
+
+@mixin transition($target: null)
+{
+    @if not $target
+    {
+        transition: var(--main-transition-time) var(--main-transition-type);
+    }
+    @else
+    {
+        transition: $target var(--main-transition-time) var(--main-transition-type);
+    }
+}
