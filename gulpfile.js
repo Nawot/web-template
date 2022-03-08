@@ -6,21 +6,20 @@ global.path = path
 global.gulp = gulp
 
 
-let {src, dest}   = require('gulp'),
-    gulp          = require('gulp'),
-    browsersync   = require('browser-sync').create(),
-    phpserver     = require('gulp-connect-php');
-    rename        = require('gulp-rename')
-    fileinclude   = require('gulp-file-include')
-    del           = require('del')
-    sass          = require('gulp-sass')(require('sass'))
-    autoprefixer  = require('gulp-autoprefixer')
-    beautify      = require('gulp-beautify')
-    replacequotes = require('gulp-replace-quotes')
-    webp          = require('gulp-webp')
-    gulpif        = require('gulp-if')
-    gulp_pug      = require('gulp-pug')
-
+import browsersync from 'browser-sync'
+import phpserver from 'gulp-connect-php'
+import rename from 'gulp-rename'
+import fileinclude from 'gulp-file-include'
+import del from 'del'
+import dartSass from 'sass'
+import gulpSass from 'gulp-sass'
+const  sass = gulpSass(dartSass)
+import autoprefixer from 'gulp-autoprefixer'
+import beautify from 'gulp-beautify'
+import replacequotes from 'gulp-replace-quotes'
+import webp from 'gulp-webp'
+import gulpif from 'gulp-if'
+import gulp_pug from 'gulp-pug'
 
 let usePHP = false
 
