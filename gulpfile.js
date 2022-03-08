@@ -59,7 +59,7 @@ function browserUpdate()
 
 function html()
 {
-    return src(path.src.html)
+    return gulp.src(path.src.html)
     .pipe(fileinclude(
     {
         indent: true
@@ -72,13 +72,13 @@ function html()
                 extname: '.php'
             })
         ))
-        .pipe(dest(path.build.html))
+        .pipe(gulp.dest(path.build.html))
         .pipe(browsersync.stream())
 }
 
 function pug()
 {
-    return src(path.src.pug)
+    return gulp.src(path.src.pug)
     .pipe(gulp_pug(
     {
         // indent: true
@@ -91,37 +91,37 @@ function pug()
                 extname: '.php'
             })
         ))
-        .pipe(dest(path.build.pug))
+        .pipe(gulp.dest(path.build.pug))
         .pipe(browsersync.stream())
 }
 
 function php()
 {
-    return src(path.src.php)
+    return gulp.src(path.src.php)
     .pipe(fileinclude(
     {
         indent: true
     }))
         .pipe(replacequotes())
-        .pipe(dest(path.build.php))
+        .pipe(gulp.dest(path.build.php))
         .pipe(browsersync.stream())
 }
 
 function js()
 {
-    return src(path.src.js)
+    return gulp.src(path.src.js)
     .pipe(fileinclude(
     {
         indent: true
     }))
         .pipe(replacequotes())
-        .pipe(dest(path.build.js))
+        .pipe(gulp.dest(path.build.js))
         .pipe(browsersync.stream())
 }
 
 function css()
 {
-    return src(path.src.css)
+    return gulp.src(path.src.css)
         .pipe(
             sass(
             {
@@ -144,26 +144,26 @@ function css()
             })
         )
         .pipe(replacequotes())
-        .pipe(dest(path.build.css))
+        .pipe(gulp.dest(path.build.css))
         .pipe(browsersync.stream())
 }
 
 function img()
 {
-    return src(path.src.img)
+    return gulp.src(path.src.img)
         .pipe(webp(
             {
                 quality: 100,
                 lossless: true
             }))
-        .pipe(dest(path.build.img))
+        .pipe(gulp.dest(path.build.img))
         .pipe(browsersync.stream())
 }
 
 function fonts()
 {
-    return src(path.src.fonts)
-        .pipe(dest(path.build.fonts))
+    return gulp.src(path.src.fonts)
+        .pipe(gulp.dest(path.build.fonts))
         .pipe(browsersync.stream())
 }
 
@@ -185,13 +185,5 @@ function clean()
 let build = gulp.series(clean, gulp.parallel(html, pug, php, js, css, img, fonts))
 let watch = gulp.parallel(build, watchForFiles, browserUpdate)
 
-exports.html    = html
-exports.pug     = pug
-exports.php     = php
-exports.css     = css
-exports.js      = js
-exports.img     = img
-exports.fonts   = fonts
-exports.build   = build
-exports.watch   = watch
-exports.default = watch
+gulp.task('default', build, watch)
+
