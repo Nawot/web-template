@@ -53,7 +53,7 @@ let {src, dest}   = require('gulp'),
     replacequotes = require('gulp-replace-quotes')
     webp          = require('gulp-webp')
     gulpif        = require('gulp-if')
-    gulp_pug           = require('gulp-pug')
+    gulp_pug      = require('gulp-pug')
 
 
 let usePHP = false
