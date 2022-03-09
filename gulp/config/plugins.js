@@ -4,7 +4,7 @@ import browsersync from 'browser-sync'
 import rename from 'gulp-rename'
 import replacequotes from 'gulp-replace-quotes'
 
-export plugins =
+export const plugins =
 {
     gulpif: gulpif,
     del: del,
