@@ -66,12 +66,7 @@ function watchForFiles()
     gulp.watch([path.watch.img], img)
 }
 
-function clean()
-{
-    return del(path.clean)
-}
-
-let build = gulp.series(clean, gulp.parallel(tasks.html, tasks.pug, tasks.php, tasks.js, tasks.css, tasks.img, tasks.fonts))
+let build = gulp.series(tasks.clean, gulp.parallel(tasks.html, tasks.pug, tasks.php, tasks.js, tasks.css, tasks.img, tasks.fonts))
 let watch = gulp.parallel(build, watchForFiles, browserUpdate)
 
 gulp.task('default', build, watch)
