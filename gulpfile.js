@@ -11,39 +11,6 @@ global.usePHP = false
 
 import * as tasks from './gulp/tasks/index.js'
 
-function browserUpdate()
-{
-    if(usePHP)
-    {
-        phpserver.server(
-        {
-            port: 8000,
-            keepalive: true,
-            base: path.root,
-        }, function ()
-        {
-            browsersync.init(
-            {
-                proxy: 'localhost:8000',
-                port: 8000,
-                notify: true
-            })
-        })
-    }
-    else
-    {
-        browsersync.init(
-        {
-            server:
-            {
-                baseDir: path.root,
-            },
-            port: 8000,
-            notify: true
-        })
-    }
-}
-
 function watchForFiles()
 {
     gulp.watch([path.watch.html], html)
@@ -55,7 +22,7 @@ function watchForFiles()
 }
 
 let build = gulp.series(tasks.clean, gulp.parallel(tasks.html, tasks.pug, tasks.php, tasks.js, tasks.css, tasks.img, tasks.fonts))
-let watch = gulp.parallel(build, watchForFiles, browserUpdate)
+let watch = gulp.parallel(build, watchForFiles, tasks.server)
 
 gulp.task('default', build, watch)
 
