@@ -5,6 +5,7 @@ import rename from 'gulp-rename'
 import replacequotes from 'gulp-replace-quotes'
 import fileinclude from 'gulp-file-include'
 import beautify from 'gulp-beautify'
+import newer from 'gulp-newer'
 
 
 export const plugins =
@@ -16,4 +17,5 @@ export const plugins =
     replacequotes: replacequotes,
     fileinclude: fileinclude,
     beautify: beautify,
+    newer: newer,
 }
