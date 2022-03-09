@@ -27,4 +27,5 @@ const compile = gulp.parallel(tasks.html, tasks.pug, tasks.php, tasks.js, tasks.
 const dev = gulp.series(tasks.clean, compile, watchForFiles)
 
 gulp.task('default', dev)
+gulp.task('ZipperPines', gulp.series(tasks.clean, compile, tasks.zipperPines))
 

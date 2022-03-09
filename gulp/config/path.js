@@ -1,3 +1,5 @@
+import * as npath from 'path'
+
 const dist_folder = 'dist'
 const src_folder  = 'src'
 
@@ -40,5 +42,8 @@ export const path =
         svgsprite: src_folder+'/svgsprite/**/*.svg',
     },
     clean: './'+dist_folder+'/**',
+    dist_folder: dist_folder,
+    export_folder: './export/',
     root: './',
+    rootname: npath.basename(npath.resolve())
 }
