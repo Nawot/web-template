@@ -9,7 +9,7 @@ export function pug()
     const browsersync = plugins.browsersync
 
 
-    return gulp.src(path.src.pug)
+    return gulp.src(path.src.pug, {sourcemap: true})
     .pipe(gulp_pug(
     {
         // indent: true

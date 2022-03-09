@@ -13,7 +13,7 @@ export function css()
     const browsersync = plugins.browsersync
     const rename = plugins.rename
 
-    return gulp.src(path.src.css)
+    return gulp.src(path.src.css, {sourcemap: true})
         .pipe(
             sass(
             {

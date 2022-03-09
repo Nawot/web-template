@@ -4,7 +4,7 @@ export function js()
     const browsersync = plugins.browsersync
     const fileinclude = plugins.fileinclude
 
-    return gulp.src(path.src.js)
+    return gulp.src(path.src.js, {sourcemap: true})
     .pipe(fileinclude(
     {
         indent: true

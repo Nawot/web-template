@@ -8,7 +8,7 @@ export function html()
     const rename = plugins.rename
     const browsersync = plugins.browsersync
 
-    return gulp.src(path.src.html)
+    return gulp.src(path.src.html, {sourcemap: true})
     .pipe(fileinclude(
     {
         indent: true
