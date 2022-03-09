@@ -6,6 +6,10 @@ import {plugins} from './gulp/config/plugins.js'
 global.path = path
 global.gulp = gulp
 global.plugins = plugins
+global.usePHP = false
+
+
+import * as tasks from './gulp/tasks/index.js'
 
 
 import browsersync from 'browser-sync'
@@ -22,8 +26,6 @@ import replacequotes from 'gulp-replace-quotes'
 import webp from 'gulp-webp'
 import gulpif from 'gulp-if'
 import gulp_pug from 'gulp-pug'
-
-let usePHP = false
 
 
 function browserUpdate()
@@ -57,25 +59,6 @@ function browserUpdate()
             notify: true
         })
     }
-}
-
-function html()
-{
-    return gulp.src(path.src.html)
-    .pipe(fileinclude(
-    {
-        indent: true
-    }))
-        .pipe(replacequotes())
-        .pipe(gulpif(
-            usePHP,
-            rename(
-            {
-                extname: '.php'
-            })
-        ))
-        .pipe(gulp.dest(path.build.html))
-        .pipe(browsersync.stream())
 }
 
 function pug()
@@ -184,7 +167,7 @@ function clean()
     return del(path.clean)
 }
 
-let build = gulp.series(clean, gulp.parallel(html, pug, php, js, css, img, fonts))
+let build = gulp.series(clean, gulp.parallel(tasks.html.exec, pug, php, js, css, img, fonts))
 let watch = gulp.parallel(build, watchForFiles, browserUpdate)
 
 gulp.task('default', build, watch)
