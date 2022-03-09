@@ -3,6 +3,7 @@ import gulpSass from 'gulp-sass'
 const  sass = gulpSass(dartSass)
 import autoprefixer from 'gulp-autoprefixer'
 import clean from 'gulp-clean-css'
+import groupMediaQueries from 'gulp-group-css-media-queries'
 
 
 export function css()
@@ -35,6 +36,7 @@ export function css()
             })
         )
         .pipe(replacequotes())
+        .pipe(groupMediaQueries())
         // Not minifed file
         .pipe(gulp.dest(path.build.css))    
         // This alredy minifed
