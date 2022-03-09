@@ -21,8 +21,7 @@ function watchForFiles()
     gulp.watch(path.watch.img, tasks.img)
 }
 
-let build = gulp.series(tasks.clean, gulp.parallel(tasks.html, tasks.pug, tasks.php, tasks.js, tasks.css, tasks.img, tasks.fonts))
-let watch = gulp.parallel(build, watchForFiles, tasks.server)
+let build = gulp.series(tasks.clean, gulp.parallel(tasks.html, tasks.pug, tasks.php, tasks.js, tasks.css, tasks.img, tasks.fonts), watchForFiles)
 
-gulp.task('default', build, watch)
+gulp.task('default', build)
 
