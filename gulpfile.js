@@ -56,13 +56,6 @@ function browserUpdate()
     }
 }
 
-function fonts()
-{
-    return gulp.src(path.src.fonts)
-        .pipe(gulp.dest(path.build.fonts))
-        .pipe(browsersync.stream())
-}
-
 function watchForFiles()
 {
     gulp.watch([path.watch.html], html)
@@ -78,7 +71,7 @@ function clean()
     return del(path.clean)
 }
 
-let build = gulp.series(clean, gulp.parallel(tasks.html.exec, tasks.pug.exec, tasks.php.exec, tasks.js.exec, tasks.css.exec, tasks.img.exec, fonts))
+let build = gulp.series(clean, gulp.parallel(tasks.html.exec, tasks.pug.exec, tasks.php.exec, tasks.js.exec, tasks.css.exec, tasks.img.exec, tasks.fonts.exec))
 let watch = gulp.parallel(build, watchForFiles, browserUpdate)
 
 gulp.task('default', build, watch)
