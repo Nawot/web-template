@@ -11,18 +11,6 @@ global.usePHP = false
 
 import * as tasks from './gulp/tasks/index.js'
 
-
-import browsersync from 'browser-sync'
-import phpserver from 'gulp-connect-php'
-import rename from 'gulp-rename'
-import fileinclude from 'gulp-file-include'
-import del from 'del'
-import beautify from 'gulp-beautify'
-import replacequotes from 'gulp-replace-quotes'
-import gulpif from 'gulp-if'
-import gulp_pug from 'gulp-pug'
-
-
 function browserUpdate()
 {
     if(usePHP)
