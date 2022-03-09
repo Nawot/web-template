@@ -61,18 +61,6 @@ function browserUpdate()
     }
 }
 
-function js()
-{
-    return gulp.src(path.src.js)
-    .pipe(fileinclude(
-    {
-        indent: true
-    }))
-        .pipe(replacequotes())
-        .pipe(gulp.dest(path.build.js))
-        .pipe(browsersync.stream())
-}
-
 function css()
 {
     return gulp.src(path.src.css)
@@ -136,7 +124,7 @@ function clean()
     return del(path.clean)
 }
 
-let build = gulp.series(clean, gulp.parallel(tasks.html.exec, tasks.pug.exec, tasks.php.exec, js, css, img, fonts))
+let build = gulp.series(clean, gulp.parallel(tasks.html.exec, tasks.pug.exec, tasks.php.exec, tasks.js.exec, css, img, fonts))
 let watch = gulp.parallel(build, watchForFiles, browserUpdate)
 
 gulp.task('default', build, watch)

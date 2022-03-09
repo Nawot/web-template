@@ -1,0 +1,15 @@
+export function exec()
+{
+    const replacequotes = plugins.replacequotes
+    const browsersync = plugins.browsersync
+    const fileinclude = plugins.fileinclude
+
+    return gulp.src(path.src.js)
+    .pipe(fileinclude(
+    {
+        indent: true
+    }))
+        .pipe(replacequotes())
+        .pipe(gulp.dest(path.build.js))
+        .pipe(browsersync.stream())
+}
