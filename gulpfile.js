@@ -61,25 +61,6 @@ function browserUpdate()
     }
 }
 
-function pug()
-{
-    return gulp.src(path.src.pug)
-    .pipe(gulp_pug(
-    {
-        // indent: true
-    }))
-        .pipe(replacequotes())
-        .pipe(gulpif(
-            usePHP,
-            rename(
-            {
-                extname: '.php'
-            })
-        ))
-        .pipe(gulp.dest(path.build.pug))
-        .pipe(browsersync.stream())
-}
-
 function php()
 {
     return gulp.src(path.src.php)
@@ -167,7 +148,7 @@ function clean()
     return del(path.clean)
 }
 
-let build = gulp.series(clean, gulp.parallel(tasks.html.exec, pug, php, js, css, img, fonts))
+let build = gulp.series(clean, gulp.parallel(tasks.html.exec, tasks.pug.exec, php, js, css, img, fonts))
 let watch = gulp.parallel(build, watchForFiles, browserUpdate)
 
 gulp.task('default', build, watch)
