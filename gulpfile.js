@@ -20,9 +20,10 @@ function watchForFiles()
     gulp.watch(path.watch.css, tasks.css)
     gulp.watch(path.watch.img, tasks.img)
     gulp.watch(path.watch.fonts, tasks.fonts)
+    gulp.watch(path.watch.svgsprite, tasks.svgSpriter)
 }
 
-const compile = gulp.parallel(tasks.html, tasks.pug, tasks.php, tasks.js, tasks.css, tasks.img, tasks.fonts)
+const compile = gulp.parallel(tasks.html, tasks.pug, tasks.php, tasks.js, tasks.css, tasks.img, tasks.fonts, tasks.svgSpriter)
 const dev = gulp.series(tasks.clean, compile, watchForFiles)
 
 gulp.task('default', dev)

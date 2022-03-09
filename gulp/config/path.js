@@ -11,7 +11,8 @@ export const path =
         css:   dist_folder+'/css/',
         js:    dist_folder+'/js/',
         img:   dist_folder+'/img/',
-        fonts: dist_folder+'/fonts/'
+        fonts: dist_folder+'/fonts/',
+        svgsprite: dist_folder+'/',
     },
 
     src: 
@@ -22,7 +23,8 @@ export const path =
         css:   [src_folder+'/scss/**/*.scss', '!'+src_folder+'/scss/**/_*.scss'],
         js:    [src_folder+'/js/**/*.js', '!'+src_folder+'/js/**/_*.js'],
         img:    src_folder+'/img/**/*.{png,jpg,svg}',
-        fonts:  src_folder+'/fonts/**/*.*'
+        fonts:  src_folder+'/fonts/**/*.*',
+        svgsprite: src_folder+'/svgsprite/**/*.svg',
 
     },
 
@@ -34,7 +36,8 @@ export const path =
         css:   src_folder+'/scss/**/*.scss',
         js:    src_folder+'/js/**/*.js',
         img:   src_folder+'/img/**/*.{png,jpg,svg}',
-        fonts: src_folder+'/fonts/**/*.*'
+        fonts: src_folder+'/fonts/**/*.*',
+        svgsprite: src_folder+'/svgsprite/**/*.svg',
     },
     clean: './'+dist_folder+'/**',
     root: './',
