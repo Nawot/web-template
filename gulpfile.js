@@ -19,7 +19,6 @@ import fileinclude from 'gulp-file-include'
 import del from 'del'
 import beautify from 'gulp-beautify'
 import replacequotes from 'gulp-replace-quotes'
-import webp from 'gulp-webp'
 import gulpif from 'gulp-if'
 import gulp_pug from 'gulp-pug'
 
@@ -57,18 +56,6 @@ function browserUpdate()
     }
 }
 
-function img()
-{
-    return gulp.src(path.src.img)
-        .pipe(webp(
-            {
-                quality: 100,
-                lossless: true
-            }))
-        .pipe(gulp.dest(path.build.img))
-        .pipe(browsersync.stream())
-}
-
 function fonts()
 {
     return gulp.src(path.src.fonts)
@@ -91,7 +78,7 @@ function clean()
     return del(path.clean)
 }
 
-let build = gulp.series(clean, gulp.parallel(tasks.html.exec, tasks.pug.exec, tasks.php.exec, tasks.js.exec, tasks.css.exec, img, fonts))
+let build = gulp.series(clean, gulp.parallel(tasks.html.exec, tasks.pug.exec, tasks.php.exec, tasks.js.exec, tasks.css.exec, tasks.img.exec, fonts))
 let watch = gulp.parallel(build, watchForFiles, browserUpdate)
 
 gulp.task('default', build, watch)
