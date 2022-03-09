@@ -2,6 +2,7 @@ import dartSass from 'sass'
 import gulpSass from 'gulp-sass'
 const  sass = gulpSass(dartSass)
 import autoprefixer from 'gulp-autoprefixer'
+import clean from 'gulp-clean-css'
 
 
 export function css()
@@ -9,6 +10,7 @@ export function css()
     const beautify = plugins.beautify
     const replacequotes = plugins.replacequotes
     const browsersync = plugins.browsersync
+    const rename = plugins.rename
 
     return gulp.src(path.src.css)
         .pipe(
@@ -33,6 +35,16 @@ export function css()
             })
         )
         .pipe(replacequotes())
+        // Not minifed file
+        .pipe(gulp.dest(path.build.css))    
+        // This alredy minifed
+        .pipe(clean())
+        .pipe(
+            rename(
+                {
+                    extname: '.min.css'
+                })
+        )
         .pipe(gulp.dest(path.build.css))
         .pipe(browsersync.stream())
 }
