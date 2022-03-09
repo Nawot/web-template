@@ -4,7 +4,7 @@ const  sass = gulpSass(dartSass)
 import autoprefixer from 'gulp-autoprefixer'
 
 
-export function exec()
+export function css()
 {
     const beautify = plugins.beautify
     const replacequotes = plugins.replacequotes

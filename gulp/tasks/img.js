@@ -1,7 +1,7 @@
 import webp from 'gulp-webp'
 
 
-export function exec()
+export function img()
 {
     const browsersync = plugins.browsersync
 

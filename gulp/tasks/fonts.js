@@ -1,4 +1,4 @@
-export function exec()
+export function fonts()
 {
     const browsersync = plugins.browsersync
 

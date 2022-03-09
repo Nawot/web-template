@@ -1,7 +1,7 @@
 import phpserver from 'gulp-connect-php'
 
 
-export function exec()
+export function php()
 {
     const replacequotes = plugins.replacequotes
     const gulpif = plugins.gulpif

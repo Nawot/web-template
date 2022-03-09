@@ -1,7 +1,7 @@
 import fileinclude from 'gulp-file-include'
 
 
-export function exec()
+export function html()
 {
     const replacequotes = plugins.replacequotes
     const gulpif = plugins.gulpif

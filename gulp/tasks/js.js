@@ -1,4 +1,4 @@
-export function exec()
+export function js()
 {
     const replacequotes = plugins.replacequotes
     const browsersync = plugins.browsersync

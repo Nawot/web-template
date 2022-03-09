@@ -71,7 +71,7 @@ function clean()
     return del(path.clean)
 }
 
-let build = gulp.series(clean, gulp.parallel(tasks.html.exec, tasks.pug.exec, tasks.php.exec, tasks.js.exec, tasks.css.exec, tasks.img.exec, tasks.fonts.exec))
+let build = gulp.series(clean, gulp.parallel(tasks.html, tasks.pug, tasks.php, tasks.js, tasks.css, tasks.img, tasks.fonts))
 let watch = gulp.parallel(build, watchForFiles, browserUpdate)
 
 gulp.task('default', build, watch)

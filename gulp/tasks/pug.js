@@ -1,7 +1,7 @@
 import gulp_pug from 'gulp-pug'
 
 
-export function exec()
+export function pug()
 {
     const replacequotes = plugins.replacequotes
     const gulpif = plugins.gulpif
