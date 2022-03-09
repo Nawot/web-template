@@ -19,6 +19,7 @@ function watchForFiles()
     gulp.watch(path.watch.js, tasks.js)
     gulp.watch(path.watch.css, tasks.css)
     gulp.watch(path.watch.img, tasks.img)
+    gulp.watch(path.watch.fonts, tasks.fonts)
 }
 
 const compile = gulp.parallel(tasks.html, tasks.pug, tasks.php, tasks.js, tasks.css, tasks.img, tasks.fonts)
