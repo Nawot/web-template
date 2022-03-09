@@ -17,10 +17,6 @@ import phpserver from 'gulp-connect-php'
 import rename from 'gulp-rename'
 import fileinclude from 'gulp-file-include'
 import del from 'del'
-import dartSass from 'sass'
-import gulpSass from 'gulp-sass'
-const  sass = gulpSass(dartSass)
-import autoprefixer from 'gulp-autoprefixer'
 import beautify from 'gulp-beautify'
 import replacequotes from 'gulp-replace-quotes'
 import webp from 'gulp-webp'
@@ -61,35 +57,6 @@ function browserUpdate()
     }
 }
 
-function css()
-{
-    return gulp.src(path.src.css)
-        .pipe(
-            sass(
-            {
-                outputStyle: 'expanded'
-            })
-        )
-        .pipe(
-            autoprefixer(
-            {
-                overrideBrowserslist: ['last 5 versions'],
-                cascade: true
-            })
-        )
-        .pipe(
-            beautify.css(
-            {
-                'brace_style': 'expand',
-                'indent_with_tabs': true,
-                'indent_size': 4
-            })
-        )
-        .pipe(replacequotes())
-        .pipe(gulp.dest(path.build.css))
-        .pipe(browsersync.stream())
-}
-
 function img()
 {
     return gulp.src(path.src.img)
@@ -124,7 +91,7 @@ function clean()
     return del(path.clean)
 }
 
-let build = gulp.series(clean, gulp.parallel(tasks.html.exec, tasks.pug.exec, tasks.php.exec, tasks.js.exec, css, img, fonts))
+let build = gulp.series(clean, gulp.parallel(tasks.html.exec, tasks.pug.exec, tasks.php.exec, tasks.js.exec, tasks.css.exec, img, fonts))
 let watch = gulp.parallel(build, watchForFiles, browserUpdate)
 
 gulp.task('default', build, watch)

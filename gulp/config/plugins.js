@@ -4,6 +4,8 @@ import browsersync from 'browser-sync'
 import rename from 'gulp-rename'
 import replacequotes from 'gulp-replace-quotes'
 import fileinclude from 'gulp-file-include'
+import beautify from 'gulp-beautify'
+
 
 export const plugins =
 {
@@ -13,4 +15,5 @@ export const plugins =
     rename: rename,
     replacequotes: replacequotes,
     fileinclude: fileinclude,
+    beautify: beautify,
 }
