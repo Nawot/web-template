@@ -24,7 +24,7 @@ function watchForFiles()
 }
 
 const compile = gulp.parallel(tasks.html, tasks.pug, tasks.php, tasks.js, tasks.css, tasks.img, tasks.fonts, tasks.svgSpriter)
-const dev = gulp.series(tasks.clean, compile, tasks.server, watchForFiles)
+const dev = gulp.series(tasks.clean, compile, gulp.parallel(tasks.server, watchForFiles))
 
 gulp.task('default', dev)
 gulp.task('ZipperPines', gulp.series(tasks.clean, compile, tasks.zipperPines))
