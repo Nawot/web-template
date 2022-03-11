@@ -10,7 +10,7 @@ export function server()
         {
             port: 8000,
             keepalive: true,
-            base: path.root,
+            base: path.dist_folder,
         }, function ()
         {
             browsersync.init(
@@ -27,7 +27,7 @@ export function server()
         {
             server:
             {
-                baseDir: path.root,
+                baseDir: path.dist_folder,
             },
             port: 8000,
             notify: true
