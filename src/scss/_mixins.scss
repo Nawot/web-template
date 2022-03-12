@@ -34,6 +34,11 @@
     }
     @else
     {
-        transition: $target var(--main-transition-time) var(--main-transition-type);
+        $value: null;
+        @each $i in $target
+        {
+            $value: $value, $i var(--main-transition-time) var(--main-transition-type);
+        }
+        transition: $value;
     }
 }
