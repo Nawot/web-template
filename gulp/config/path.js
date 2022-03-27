@@ -14,7 +14,7 @@ export const path =
         html:      `${dist_folder}/`,
         pug:       `${dist_folder}/`,
         php:       `${dist_folder}/`,
-        css:       `${dist_folder}/css/`,
+        scss:      `${dist_folder}/css/`,
         js:        `${dist_folder}/js/`,
         img:       `${dist_folder}/img/`,
         fonts:     `${dist_folder}/fonts/`,
@@ -32,8 +32,8 @@ export const path =
         php_root:       `${src_folder}/php`,
         php:           [`${src_folder}/php/!(${technical_names.join('|')}).php`, `${src_folder}/php/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).php`],
 
-        css_root:       `${src_folder}/scss`,
-        css:           [`${src_folder}/scss/!(${technical_names.join('|')}).scss`, `${src_folder}/scss/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).scss`],
+        scss_root:      `${src_folder}/scss`,
+        scss:          [`${src_folder}/scss/!(${technical_names.join('|')}).scss`, `${src_folder}/scss/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).scss`],
 
         js_root:        `${src_folder}/js`,
         js:            [`${src_folder}/js/!(${technical_names.join('|')}).js`, `${src_folder}/js/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).js`],

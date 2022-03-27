@@ -6,14 +6,14 @@ import clean from 'gulp-clean-css'
 import groupMediaQueries from 'gulp-group-css-media-queries'
 
 
-export function css()
+export function scss()
 {
     const beautify = plugins.beautify
     const replacequotes = plugins.replacequotes
     const browsersync = plugins.browsersync
     const rename = plugins.rename
 
-    return gulp.src(path.src.css, {sourcemap: true})
+    return gulp.src(path.src.scss, {sourcemap: true})
         .pipe(
             sass(
             {
@@ -39,7 +39,7 @@ export function css()
         .pipe(replacequotes())
         .pipe(groupMediaQueries())
         // Not minifed file
-        .pipe(gulp.dest(path.build.css))    
+        .pipe(gulp.dest(path.build.scss))    
         // This alredy minifed
         .pipe(clean())
         .pipe(
@@ -48,6 +48,6 @@ export function css()
                     extname: '.min.css'
                 })
         )
-        .pipe(gulp.dest(path.build.css))
+        .pipe(gulp.dest(path.build.scss))
         .pipe(browsersync.stream())
 }
