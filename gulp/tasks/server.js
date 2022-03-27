@@ -27,7 +27,11 @@ export function server()
         {
             server:
             {
+<<<<<<< HEAD
                 baseDir: path.dist_folder,
+=======
+                baseDir: path.root,
+>>>>>>> html
             },
             port: 8000,
             notify: true
