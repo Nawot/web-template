@@ -17,7 +17,8 @@ export function css()
         .pipe(
             sass(
             {
-                outputStyle: 'expanded'
+                outputStyle: 'expanded',
+                includePaths: `${path.root}/${path.src.css_root}`,
             })
         )
         .pipe(
