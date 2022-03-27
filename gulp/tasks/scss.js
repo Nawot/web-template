@@ -40,6 +40,7 @@ export function scss()
         .pipe(groupMediaQueries())
         // Not minifed file
         .pipe(gulp.dest(path.build.scss))    
+        .pipe(browsersync.stream())
         // This alredy minifed
         .pipe(clean())
         .pipe(
