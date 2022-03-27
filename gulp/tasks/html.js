@@ -11,7 +11,9 @@ export function html()
     return gulp.src(path.src.html, {sourcemap: true})
     .pipe(fileinclude(
     {
-        indent: true
+        indent: true,
+        basedir: `${path.root}/${path.src.html_root}`,
+        basepath: `${path.root}/${path.src.html_root}`
     }))
         .pipe(replacequotes())
         .pipe(gulpif(
