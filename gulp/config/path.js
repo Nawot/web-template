@@ -20,7 +20,7 @@ export const path =
     src: 
     {
         html_root:      `${src_folder}/html`,
-        html:          [`${src_folder}/html/**/*.html`, `!${src_folder}html/**/_*.html`],
+        html:          [`${src_folder}/html/**/*.html`, `!${src_folder}/html/**/_*.html`],
 
         pug_root:       `${src_folder}/pug`,
         pug:           [`${src_folder}/pug/**/*.pug`, `!${src_folder}/pug/**/_*.pug`],
