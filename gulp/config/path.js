@@ -4,7 +4,7 @@ const dist_folder = 'dist'
 const src_folder  = 'src'
 
 
-const technical_directories = ['include', 'mixins']
+const technical_directories = ['include', 'mixins', 'functions']
 const technical_names       = ['_*']
 
 export const path =
