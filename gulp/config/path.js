@@ -19,14 +19,29 @@ export const path =
 
     src: 
     {
-        html:     [`${src_folder}'/html/**/*.html`, `!${src_folder}/html/**/_*.html`],
-        pug:      [`${src_folder}/pug/**/*.pug`, `!${src_folder}/pug/**/_*.pug`],
-        php:      [`${src_folder}/php/**/*.php`, `!${src_folder}/php/**/_*.php`],
-        css:      [`${src_folder}/scss/**/*.scss`, `!${src_folder}/scss/**/_*.scss`],
-        js:       [`${src_folder}/js/**/*.js`, `!${src_folder}/js/**/_*.js`],
-        img:       `src_folder+'/img/**/*.{png,jpg,svg}`,
-        fonts:     `src_folder+'/fonts/**/*.*`,
-        svgsprite: `src_folder+'/svgsprite/**/*.svg`,
+        html_root:      `${src_folder}/html`,
+        html:          [`${src_folder}/html/**/*.html`, `!${src_folder}html/**/_*.html`],
+
+        pug_root:       `${src_folder}/pug`,
+        pug:           [`${src_folder}/pug/**/*.pug`, `!${src_folder}/pug/**/_*.pug`],
+
+        php_root:       `${src_folder}/php`,
+        php:           [`${src_folder}/php/**/*.php`, `!${src_folder}/php/**/_*.php`],
+
+        css_root:       `${src_folder}/scss`,
+        css:           [`${src_folder}/scss/**/*.scss`, `!${src_folder}/scss/**/_*.scss`],
+
+        js_root:        `${src_folder}/js`,
+        js:            [`${src_folder}/js/**/*.js`, `!${src_folder}/js/**/_*.js`],
+
+        img_root:       `${src_folder}/img`,
+        img:            `${src_folder}/img/**/*.{png,jpg,svg}`,
+
+        fonts_root:     `${src_folder}/fonts`,
+        fonts:          `${src_folder}/fonts/**/*.*`,
+
+        svgsprite_root: `${src_folder}/svgsprite`,
+        svgsprite:      `${src_folder}/svgsprite/**/*.svg`,
     },
 
     watch: 
