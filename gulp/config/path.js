@@ -3,6 +3,10 @@ import * as npath from 'path'
 const dist_folder = 'dist'
 const src_folder  = 'src'
 
+
+const technical_directories = ['include', 'mixins']
+const technical_names       = ['_*']
+
 export const path =
 {
     build: 
@@ -20,19 +24,19 @@ export const path =
     src: 
     {
         html_root:      `${src_folder}/html`,
-        html:          [`${src_folder}/html/**/*.html`, `!${src_folder}/html/**/_*.html`],
+        html:           [`${src_folder}/html/!(${technical_names.join('|')}).html`, `${src_folder}/html/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).html`],
 
         pug_root:       `${src_folder}/pug`,
-        pug:           [`${src_folder}/pug/**/*.pug`, `!${src_folder}/pug/**/_*.pug`],
+        pug:           [`${src_folder}/pug/!(${technical_names.join('|')}).pug`, `${src_folder}/pug/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).pug`],
 
         php_root:       `${src_folder}/php`,
-        php:           [`${src_folder}/php/**/*.php`, `!${src_folder}/php/**/_*.php`],
+        php:           [`${src_folder}/php/!(${technical_names.join('|')}).php`, `${src_folder}/php/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).php`],
 
         css_root:       `${src_folder}/scss`,
-        css:           [`${src_folder}/scss/**/*.scss`, `!${src_folder}/scss/**/_*.scss`],
+        css:           [`${src_folder}/scss/!(${technical_names.join('|')}).scss`, `${src_folder}/scss/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).scss`],
 
         js_root:        `${src_folder}/js`,
-        js:            [`${src_folder}/js/**/*.js`, `!${src_folder}/js/**/_*.js`],
+        js:            [`${src_folder}/js/!(${technical_names.join('|')}).js`, `${src_folder}/js/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).js`],
 
         img_root:       `${src_folder}/img`,
         img:            `${src_folder}/img/**/*.{png,jpg,svg}`,
