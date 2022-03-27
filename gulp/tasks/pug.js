@@ -12,7 +12,7 @@ export function pug()
     return gulp.src(path.src.pug, {sourcemap: true})
     .pipe(gulp_pug(
     {
-        // indent: true
+        pretty: true
     }))
         .pipe(replacequotes())
         .pipe(gulpif(
