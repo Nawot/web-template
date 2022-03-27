@@ -12,7 +12,8 @@ export function pug()
     return gulp.src(path.src.pug, {sourcemap: true})
     .pipe(gulp_pug(
     {
-        pretty: true
+        pretty: true,
+        basedir: `${path.root}/${path.src.pug_root}`
     }))
         .pipe(replacequotes())
         .pipe(gulpif(
