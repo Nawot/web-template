@@ -1,4 +1,21 @@
+@use 'sass:map';
+
 @use 'config' as *;
+
+@mixin setVars()
+{
+    @each $key, $val in $to-root
+    {
+        @if type-of($val) != map
+        {
+            #{'--'+$key}: $val;
+        }
+        @else
+        {
+            #{'--'+$key}: #{map.get($val, 'val')+map.get($val, 'ext')};
+        }
+    } 
+};
 
 @mixin breakpoint($bp, $is_mobile:false)
 {
