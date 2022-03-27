@@ -49,3 +49,19 @@ a
     margin: 0 auto;
 }
 
+:root
+{
+    --bg-color: #{$bg-color};
+    --accent-color: #{$accent-color};
+    --over-accent-color: #{$over-accent-color};
+    --main-color: #{$main-color};
+
+    --main-font: #{$main-font};
+    --main-font-size: #{$main-font-size+px};
+    --main-font-weight: #{$main-font-weight};
+    --main-line-height: #{$main-line-height+rem};
+
+    --main-transition-time: #{$main-transition-time};
+    --main-transition-type: #{$main-transition-type};
+}
+

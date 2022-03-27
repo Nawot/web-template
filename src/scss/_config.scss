@@ -1,24 +1,24 @@
+@use 'sass:map';
+
 // Design properties. Unique for each project 
 $page-width:      1600px;
 $wrapper-padding: 10px;
 $wrapper-width:   1200px;
 
-:root
-{
-    --bg-color: #F0F0F0;
-    --accent-color: #8e3fcf;
-    --over-accent-color: #EFEFEF;
-    --main-color: #2B2B2B;
 
+$bg-color: #F0F0F0;
+$accent-color: #8e3fcf;
+$over-accent-color: #EFEFEF;
+$main-color: #2B2B2B;
 
-    --main-font: 'Roboto';
-    --main-font-size: 16px;
-    --main-font-weight: 400;
-    --main-line-height: 19px;
+$main-font: 'Roboto';
+$main-font-size: 16;
+$main-font-weight: 400;
+$main-line-height: 1.2;
 
-    --main-transition-time: 0.5s;
-    --main-transition-type: cubic-bezier(0.23, 1, 0.32, 1)
-}
+$main-transition-time: 0.5s;
+$main-transition-type: cubic-bezier(0.23, 1, 0.32, 1);
+
 
 $bps:
 (
