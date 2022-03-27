@@ -59,6 +59,6 @@ export const path =
     clean: `./${dist_folder}/**`,
     dist_folder: dist_folder,
     export_folder: './export/',
-    root: './',
+    root: npath.resolve(),
     rootname: npath.basename(npath.resolve())
 }
