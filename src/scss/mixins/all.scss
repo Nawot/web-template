@@ -2,18 +2,48 @@
 
 @use 'config' as *;
 
-@mixin setVars()
+
+@mixin setVarsPars($key, $val, $par-key: '--')
 {
-    @each $key, $val in $to-root
+    $delimiter: '-';
+    @if $par-key == '--'
     {
-        @if type-of($val) != map
+        $delimiter: '';
+    }
+
+    @if type-of($val) != map
+    { 
+        #{$par-key}#{$delimiter}#{$key}: #{$val};
+    }
+
+    @else
+    {
+        $_val_: map.get($val, '_val_');
+        $_ext_: map.get($val, '_ext_');
+
+        @if $_val_ != null
         {
-            #{'--'+$key}: $val;
+            $result: $_val_;
+            
+            @if $_ext_ != null {$result: '#{$result}#{$_ext_}'}
+
+            #{$par-key}#{$delimiter}#{$key}: #{$result}
         }
         @else
         {
-            #{'--'+$key}: #{map.get($val, 'val')+map.get($val, 'ext')};
-        }
+            @each $new-key, $new-val in $val
+            {
+                @include setVarsPars($new-key, $new-val, '#{$par-key}#{$delimiter}#{$key}');
+            }
+        } 
+    } 
+}
+
+@mixin setVars()
+{ 
+    @each $key, $val in $to-root
+    {
+        @include setVarsPars($key, $val);
     } 
 };
 
@@ -47,14 +77,14 @@
 {
     @if not $target
     {
-        transition: var(--main-transition-time) var(--main-transition-type);
+        transition: var(--transition-main-time) var(--transition-main-type);
     }
     @else
     {
         $value: null;
         @each $i in $target
         {
-            $value: $value, $i var(--main-transition-time) var(--main-transition-type);
+            $value: $value, $i var(--transition-main-time) var(--transition-main-type);
         }
         transition: $value;
     }

@@ -19,17 +19,31 @@ $main-transition-type: cubic-bezier(0.23, 1, 0.32, 1);
 
 $to-root:
 (
-    'bg-color': #F0F0F0,
-    'accent-color': #8e3fcf,
-    'main-color': #2B2B2B,
+    'color':
+    (
+        'main': #2B2B2B,
+        'accent': #8E3FcF,
+        'bg': #F0F0F0
+    ),
 
-    'main-font': 'Ubuntu',
-    'main-font-size': ('val': 16, 'ext': px),
-    'main-font-weight': 400,
-    'main-line-height': ('val': 1.2, 'ext': rem),
+    'font':
+    (
+        'main':
+        (
+            'size': ('_val_': 16, '_ext_': px),
+            'weight': 400,
+            'height': ('_val_': 1.2, '_ext_': rem)
+        )
+    ),
 
-    'main-transition-time': ('val': 0.5, 'ext': s),
-    'main-transition-type': cubic-bezier(0.23, 1, 0.32, 1)
+    'transition':
+    (
+        'main':
+        (
+            'time': ('_val_': 0.5, '_ext_': s),
+            'type': cubic-bezier(0.23, 1, 0.32, 1)
+        )
+    )
 );
 
 
