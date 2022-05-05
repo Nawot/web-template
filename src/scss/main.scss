@@ -9,7 +9,7 @@
 
 :root
 {
-    @include setVars();
+    @include setVars($to-root);
 }
 
 body

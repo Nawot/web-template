@@ -39,9 +39,9 @@
     } 
 }
 
-@mixin setVars()
+@mixin setVars($from)
 { 
-    @each $key, $val in $to-root
+    @each $key, $val in $from
     {
         @include setVarsPars($key, $val);
     } 
