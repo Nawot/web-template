@@ -2,6 +2,24 @@
 
 @use 'config' as *;
 
+@mixin setVarsParsBps($param-name, $bps)
+{
+    @each $key, $val in $bps
+    {
+        $_val_: map.get($val, '_val_');
+        $_ext_: map.get($val, '_ext_');
+
+        @if $_val_ == null
+        {
+            @error 'Breakpoint #{$key} of #{$param-name} not contain value. This should contain _val_ parameter'
+        }
+
+        @include breakpoint($key)
+        {
+            #{$param-name}: #{$_val_}#{$_ext_}
+        }
+    }
+}
 
 @mixin setVarsPars($key, $val, $par-key: '--')
 {
@@ -20,6 +38,7 @@
     {
         $_val_: map.get($val, '_val_');
         $_ext_: map.get($val, '_ext_');
+        $_bps_: map.get($val, '_bps_');
 
         @if $_val_ != null
         {
@@ -27,7 +46,9 @@
             
             @if $_ext_ != null {$result: '#{$result}#{$_ext_}'}
 
-            #{$par-key}#{$delimiter}#{$key}: #{$result}
+            #{$par-key}#{$delimiter}#{$key}: #{$result};
+
+            @if $_bps_ != null {@include setVarsParsBps('#{$par-key}#{$delimiter}#{$key}', $_bps_)}
         }
         @else
         {

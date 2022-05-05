@@ -30,7 +30,24 @@ $to-root:
     (
         'main':
         (
-            'size': ('_val_': 16, '_ext_': px),
+            'size':
+            (
+                '_val_': 16,
+                '_ext_': px,
+                '_bps_':
+                (
+                    'lg':
+                    (
+                        '_val_': 12,
+                        '_ext_': px
+                    ),
+                    'md':
+                    (
+                        '_val_': 8,
+                        '_ext_': px
+                    )
+                )
+            ),
             'weight': 400,
             'height': ('_val_': 1.2, '_ext_': rem)
         )
