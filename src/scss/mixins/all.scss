@@ -1,6 +1,9 @@
 @use 'sass:map';
+@use 'sass:list';
 
 @use 'config' as *;
+
+$vars-pars-keywords: ('_val_', '_ext_', '_bps_');
 
 @mixin setVarsParsBps($param-name, $bps)
 {
@@ -46,13 +49,14 @@
 
             @if $_bps_ != null {@include setVarsParsBps('#{$par-key}#{$delimiter}#{$key}', $_bps_)}
         }
-        @else
+
+        @each $new-key, $new-val in $val
         {
-            @each $new-key, $new-val in $val
+            @if not list.index($vars-pars-keywords, $new-key)
             {
                 @include setVarsPars($new-key, $new-val, '#{$par-key}#{$delimiter}#{$key}');
             }
-        } 
+        }
     } 
 }
 

@@ -22,7 +22,11 @@ $to-root:
     'color':
     (
         'main': #2B2B2B,
-        'accent': #8E3FcF,
+        'accent':
+        (
+            '_val_': #8E3FcF,
+            '1': #3F8EcF
+        ),
         'bg': #F0F0F0
     ),
 
