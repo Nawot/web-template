@@ -42,11 +42,7 @@
 
         @if $_val_ != null
         {
-            $result: $_val_;
-            
-            @if $_ext_ != null {$result: '#{$result}#{$_ext_}'}
-
-            #{$par-key}#{$delimiter}#{$key}: #{$result};
+            #{$par-key}#{$delimiter}#{$key}: #{$_val_}#{$_ext_};
 
             @if $_bps_ != null {@include setVarsParsBps('#{$par-key}#{$delimiter}#{$key}', $_bps_)}
         }
