@@ -1,9 +1,10 @@
 import webpack from 'webpack'
 import {path} from './gulp/config/path.js'
+import {isDev} from './config.js'
 
 export default
 {
-    mode: 'development',
+    mode: isDev ? 'development' : 'prodaction',
     devtool: 'eval-source-map',
     resolve:
     {

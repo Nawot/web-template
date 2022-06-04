@@ -2,12 +2,15 @@ import gulp from 'gulp'
 
 import {path} from './gulp/config/path.js'
 import {plugins} from './gulp/config/plugins.js'
+import * as config from './config.js'
 
 global.path = path
 global.gulp = gulp
 global.plugins = plugins
 global.usePHP = false
 
+global.isDev = config.isDev
+global.isProd = config.isProd
 
 import * as tasks from './gulp/tasks/index.js'
 
