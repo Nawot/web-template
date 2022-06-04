@@ -18,7 +18,7 @@ export function scss()
             sass(
             {
                 outputStyle: 'expanded',
-                includePaths: `${path.root}/${path.src.css_root}`,
+                includePaths: [`${path.root}/${path.src.css_root}`, 'node_modules'],
             })
         )
         .pipe(
