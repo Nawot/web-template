@@ -4,7 +4,6 @@ import {path} from './gulp/config/path.js'
 export default
 {
     mode: 'development',
-    entry: './src/js/main.js',
     resolve:
     {
         alias:
