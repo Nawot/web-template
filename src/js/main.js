@@ -4,5 +4,8 @@ import 'swiper/css'
 document.addEventListener('DOMContentLoaded', function()
 {
     // code
-    const swiper = new Swiper('swiper')
+    const swiper = new Swiper('.swiper',
+    {
+        spaceBetween: 20,
+    })
 })
