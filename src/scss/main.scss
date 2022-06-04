@@ -1,5 +1,8 @@
 @use 'sass:math' as *;
 
+// Libs
+@use 'swiper/swiper.scss';
+
 @use 'include/stabilizer' as *;
 @use 'config' as *;
 @use 'mixins/all' as *;
