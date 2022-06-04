@@ -4,6 +4,7 @@ import {path} from './gulp/config/path.js'
 export default
 {
     mode: 'development',
+    devtool: 'eval-source-map',
     resolve:
     {
         alias:
