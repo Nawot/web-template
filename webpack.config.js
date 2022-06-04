@@ -13,13 +13,13 @@ export default
         },
     },
 
-    optimization:
-    {
-        splitChunks:
-        {
-            chunks: 'all',
-        },
-    },
+    // optimization:
+    // {
+    //     splitChunks:
+    //     {
+    //         chunks: 'all',
+    //     },
+    // },
 
     module:
     {
