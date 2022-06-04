@@ -1,3 +1,7 @@
+import gulpWebpack from 'webpack-stream'
+import webpack from 'webpack'
+import webpackConfig from '../../webpack.config.js'
+
 export function js()
 {
     const replacequotes = plugins.replacequotes
@@ -10,6 +14,7 @@ export function js()
         indent: true
     }))
         .pipe(replacequotes())
+        .pipe(gulpWebpack(webpackConfig, webpack))
         .pipe(gulp.dest(path.build.js))
         .pipe(browsersync.stream())
 }
