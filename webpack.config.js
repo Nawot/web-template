@@ -13,6 +13,14 @@ export default
         },
     },
 
+    optimization:
+    {
+        splitChunks:
+        {
+            chunks: 'all',
+        },
+    },
+
     module:
     {
         rules:
