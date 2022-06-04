@@ -5,7 +5,7 @@ import {isDev} from './config.js'
 export default
 {
     mode: isDev ? 'development' : 'prodaction',
-    devtool: 'eval-source-map',
+    devtool: isDev ? 'eval-source-map' : 'none',
     resolve:
     {
         alias:
