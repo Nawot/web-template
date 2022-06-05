@@ -12,8 +12,8 @@ export function html()
     .pipe(fileinclude(
     {
         indent: true,
-        basedir: `${path.root}/${path.src.html_root}`,
-        basepath: `${path.root}/${path.src.html_root}`
+        basedir: `${path.root}/${path.src_folder}`,
+        basepath: `${path.root}/${path.src_folder}`
     }))
         .pipe(replacequotes())
         .pipe(gulpif(

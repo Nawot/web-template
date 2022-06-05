@@ -13,7 +13,7 @@ export function pug()
     .pipe(gulp_pug(
     {
         pretty: true,
-        basedir: `${path.root}/${path.src.pug_root}`
+        basedir: `${path.root}/${path.src_folder}`
     }))
         .pipe(replacequotes())
         .pipe(gulpif(

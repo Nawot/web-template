@@ -23,14 +23,14 @@ export const path =
 
     src: 
     {
-        html_root:      `${src_folder}/html`,
-        html:           [`${src_folder}/html/!(${technical_names.join('|')}).html`, `${src_folder}/html/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).html`],
+        html_root:      `${src_folder}/pages`,
+        html:           [`${src_folder}/pages/**/*.html`],
 
-        pug_root:       `${src_folder}/pug`,
-        pug:           [`${src_folder}/pug/!(${technical_names.join('|')}).pug`, `${src_folder}/pug/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).pug`],
+        pug_root:       `${src_folder}/pages`,
+        pug:           [`${src_folder}/pages/**/*.pug`],
 
         php_root:       `${src_folder}/php`,
-        php:           [`${src_folder}/php/!(${technical_names.join('|')}).php`, `${src_folder}/php/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).php`],
+        php:           [`${src_folder}/pages/**/*.php`],
 
         scss_root:      `${src_folder}/scss`,
         scss:          [`${src_folder}/scss/!(${technical_names.join('|')}).scss`, `${src_folder}/scss/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).scss`],
@@ -50,9 +50,9 @@ export const path =
 
     watch: 
     {
-        html:      `${src_folder}/html/**/*.html`,
-        pug:       `${src_folder}/pug/**/*.pug`,
-        php:       `${src_folder}/php/**/*.php`,
+        html:      `${src_folder}/pages/**/*.html`,
+        pug:       `${src_folder}/pages/**/*.pug`,
+        php:       `${src_folder}/pages/**/*.php`,
         css:       `${src_folder}/scss/**/*.scss`,
         js:        `${src_folder}/js/**/*.js`,
         img:       `${src_folder}/img/**/*.{png,jpg,svg}`,

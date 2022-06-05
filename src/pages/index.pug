@@ -1,9 +1,9 @@
-extend /include/base
+extend /layouts/base
 append vars
     - lang = 'en'
     - title = 'I\'m template'
 block content
-    include /include/header
+    include /templates/header
     main.main
         section.hero(style='margin: 30px 0;')
             .wrapper
@@ -13,4 +13,4 @@ block content
                         .swiper-slide 1
                         .swiper-slide 2
                         .swiper-slide 3
-    include /include/footer
+    include /templates/footer
