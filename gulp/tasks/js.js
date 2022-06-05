@@ -23,8 +23,7 @@ export function js()
     }))
         .pipe(replacequotes())
         .pipe(gulpif(useWebpack,
-            gulpWebpack(webpackConfig, webpack),
-            noWebpackChain()
+            gulpWebpack(webpackConfig, webpack)
         ))
 
         .pipe(gulp.dest(path.build.js))
