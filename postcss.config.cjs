@@ -1,3 +1,4 @@
+const tailwindcss = require('tailwindcss')
 const autoprefixer = require('autoprefixer')
 const combine = require('postcss-combine-media-query')
 const nano = require('cssnano')
@@ -7,6 +8,7 @@ module.exports =
     parser: 'postcss-scss',
     plugins:
     [
+        tailwindcss(),
         autoprefixer(
         {
             browsers:
