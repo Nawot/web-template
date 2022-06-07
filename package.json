@@ -47,7 +47,6 @@
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1",
-    "swiper": "^8.2.2"
+    "normalize.css": "^8.0.1"
   }
 }
