@@ -1,6 +1,7 @@
 @use 'sass:math' as *;
 
 // Libs
+@use 'normalize.css/normalize.css';
 @use 'swiper/swiper.scss';
 
 @use 'include/stabilizer' as *;
