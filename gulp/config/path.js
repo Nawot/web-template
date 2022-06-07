@@ -50,9 +50,9 @@ export const path =
 
     watch: 
     {
-        html:      `${src_folder}/pages/**/*.html`,
-        pug:       `${src_folder}/pages/**/*.pug`,
-        php:       `${src_folder}/pages/**/*.php`,
+        html:      `${src_folder}/(pages|templates|layouts)/**/*.html`,
+        pug:       `${src_folder}/(pages|templates|layouts)/**/*.pug`,
+        php:       `${src_folder}/(pages|templates|layouts)/**/*.php`,
         css:       `${src_folder}/scss/**/*.scss`,
         js:        `${src_folder}/js/**/*.js`,
         img:       `${src_folder}/img/**/*.{png,jpg,svg}`,
