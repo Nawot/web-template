@@ -16,9 +16,25 @@ import * as tasks from './gulp/tasks/index.js'
 
 function watchForFiles()
 {
-    gulp.watch(path.watch.html, tasks.html)
-    gulp.watch(path.watch.pug, tasks.pug)
-    gulp.watch(path.watch.php, tasks.php)
+    gulp.watch(path.watch.html, () => 
+	{
+        if(config.useTailwind)
+            tasks.scss()
+        return tasks.html()
+    })
+    gulp.watch(path.watch.pug, () => 
+	{
+		if(config.useTailwind)
+            tasks.scss()
+        return tasks.pug()
+    })
+    gulp.watch(path.watch.php, () => 
+	{
+		if(config.useTailwind)
+            tasks.scss()
+        return tasks.php()
+    })
+
     gulp.watch(path.watch.js, tasks.js)
     gulp.watch(path.watch.css, tasks.scss)
     gulp.watch(path.watch.img, tasks.img)
