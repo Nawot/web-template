@@ -3,6 +3,11 @@ module.exports =
     content: ["./src/**/*.{html,pug,php}"],
     theme:
     {
+        container:
+        {
+            // Remove breakpoints for container
+            screens:{},
+        },
         // For desktop first
         screens:
         {
