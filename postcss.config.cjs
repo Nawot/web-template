@@ -1,6 +1,7 @@
 const tailwindcss = require('tailwindcss')
 const autoprefixer = require('autoprefixer')
 const combine = require('postcss-combine-media-query')
+const sort = require('postcss-sort-media-queries')
 const nano = require('cssnano')
 
 module.exports =
@@ -18,6 +19,7 @@ module.exports =
 			],
         }),
         combine(),
+        sort({sort: 'desktop-first'}),
         nano(),
     ],
 }
