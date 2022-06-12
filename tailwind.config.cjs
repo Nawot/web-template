@@ -1,3 +1,5 @@
+let plugin = require('tailwindcss/plugin')
+
 module.exports =
 {
     content: ["./src/**/*.{html,pug,php}"],
@@ -21,5 +23,11 @@ module.exports =
             
         },
     },
-    plugins: [],
+    plugins:
+    [
+        plugin(function ({addVariant})
+        {
+            addVariant('isActive', '.active')
+        })
+    ],
 }
