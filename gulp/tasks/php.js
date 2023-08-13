@@ -1,7 +1,5 @@
 export function php()
 {
-    const gulpif = plugins.gulpif
-    const rename = plugins.rename
     const browsersync = plugins.browsersync
     const fileinclude = plugins.fileinclude
 

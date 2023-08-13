@@ -7,6 +7,7 @@ const src_folder  = 'src'
 const technical_directories = ['include', 'mixins', 'functions']
 const technical_names       = ['_*']
 
+// TODO Combine html, css, js converters to one pathes
 export const path =
 {
     build: 

@@ -1,4 +1,3 @@
-import webpack from 'webpack'
 import {path} from './gulp/config/path.js'
 import {isDev} from './config.js'
 
@@ -13,14 +12,6 @@ export default
             '@': path.src_folder,
         },
     },
-
-    // optimization:
-    // {
-    //     splitChunks:
-    //     {
-    //         chunks: 'all',
-    //     },
-    // },
 
     module:
     {
