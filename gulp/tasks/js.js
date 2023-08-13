@@ -9,7 +9,6 @@ import webpackConfig from '../../webpack.config.js'
 
 export function js()
 {
-    const replacequotes = plugins.replacequotes
     const browsersync = plugins.browsersync
     const gulpif = plugins.gulpif
 
@@ -17,7 +16,6 @@ export function js()
     const noWebpackChain = lazypipe()
 
     return gulp.src(path.src.js, {sourcemap: true})
-        .pipe(replacequotes())
         .pipe(gulpif(useWebpack,
             gulpWebpack(webpackConfig, webpack)
         ))

@@ -1,6 +1,5 @@
 export function php()
 {
-    const replacequotes = plugins.replacequotes
     const gulpif = plugins.gulpif
     const rename = plugins.rename
     const browsersync = plugins.browsersync
@@ -11,7 +10,6 @@ export function php()
     {
         indent: true
     }))
-        .pipe(replacequotes())
         .pipe(gulp.dest(path.build.php))
         .pipe(browsersync.stream())
 }

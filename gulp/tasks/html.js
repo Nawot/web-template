@@ -3,7 +3,6 @@ import fileinclude from 'gulp-file-include'
 
 export function html()
 {
-    const replacequotes = plugins.replacequotes
     const gulpif = plugins.gulpif
     const rename = plugins.rename
     const browsersync = plugins.browsersync
@@ -15,7 +14,6 @@ export function html()
         basedir: `${path.root}/${path.src_folder}`,
         basepath: `${path.root}/${path.src_folder}`
     }))
-        .pipe(replacequotes())
         .pipe(gulpif(
             usePHP,
             rename(

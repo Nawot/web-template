@@ -11,7 +11,6 @@ import postcss from 'gulp-postcss'
 export function scss()
 {
     const beautify = plugins.beautify
-    const replacequotes = plugins.replacequotes
     const browsersync = plugins.browsersync
     const rename = plugins.rename
 
@@ -52,7 +51,6 @@ export function scss()
         //         'indent_size': 4
         //     })
         // )
-        // .pipe(replacequotes())
         // .pipe(groupMediaQueries())
         // // Not minifed file
         // .pipe(gulp.dest(path.build.scss))    
