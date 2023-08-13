@@ -3,7 +3,6 @@ import gulp_pug from 'gulp-pug'
 
 export function pug()
 {
-    const replacequotes = plugins.replacequotes
     const gulpif = plugins.gulpif
     const rename = plugins.rename
     const browsersync = plugins.browsersync
@@ -13,9 +12,8 @@ export function pug()
     .pipe(gulp_pug(
     {
         pretty: true,
-        basedir: `${path.root}/${path.src.pug_root}`
+        basedir: `${path.root}/${path.src_folder}`
     }))
-        .pipe(replacequotes())
         .pipe(gulpif(
             usePHP,
             rename(

@@ -7,6 +7,7 @@ const src_folder  = 'src'
 const technical_directories = ['include', 'mixins', 'functions']
 const technical_names       = ['_*']
 
+// TODO Combine html, css, js converters to one pathes
 export const path =
 {
     build: 
@@ -23,14 +24,14 @@ export const path =
 
     src: 
     {
-        html_root:      `${src_folder}/html`,
-        html:           [`${src_folder}/html/!(${technical_names.join('|')}).html`, `${src_folder}/html/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).html`],
+        html_root:      `${src_folder}/pages`,
+        html:           [`${src_folder}/pages/**/*.html`],
 
-        pug_root:       `${src_folder}/pug`,
-        pug:           [`${src_folder}/pug/!(${technical_names.join('|')}).pug`, `${src_folder}/pug/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).pug`],
+        pug_root:       `${src_folder}/pages`,
+        pug:           [`${src_folder}/pages/**/*.pug`],
 
         php_root:       `${src_folder}/php`,
-        php:           [`${src_folder}/php/!(${technical_names.join('|')}).php`, `${src_folder}/php/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).php`],
+        php:           [`${src_folder}/pages/**/*.php`],
 
         scss_root:      `${src_folder}/scss`,
         scss:          [`${src_folder}/scss/!(${technical_names.join('|')}).scss`, `${src_folder}/scss/!(${technical_directories.join("|")})/!(${technical_names.join("|")}).scss`],
@@ -50,9 +51,9 @@ export const path =
 
     watch: 
     {
-        html:      `${src_folder}/html/**/*.html`,
-        pug:       `${src_folder}/pug/**/*.pug`,
-        php:       `${src_folder}/php/**/*.php`,
+        html:      `${src_folder}/(pages|templates|layouts)/**/*.html`,
+        pug:       `${src_folder}/(pages|templates|layouts)/**/*.pug`,
+        php:       `${src_folder}/(pages|templates|layouts)/**/*.php`,
         css:       `${src_folder}/scss/**/*.scss`,
         js:        `${src_folder}/js/**/*.js`,
         img:       `${src_folder}/img/**/*.{png,jpg,svg}`,
@@ -62,6 +63,7 @@ export const path =
 
     clean: `./${dist_folder}/**`,
     dist_folder: dist_folder,
+    src_folder: src_folder,
     export_folder: './export/',
     root: npath.resolve(),
     rootname: npath.basename(npath.resolve())

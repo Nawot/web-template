@@ -1,4 +1,4 @@
-include /mixins/all
+include /templates/mixins/all
 
 block vars
     - var title = 'Title';
@@ -10,9 +10,8 @@ html(lang=lang)
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         title #{title}
-        link(rel='icon' href='./img/favicons/main.webp')
+        link(rel='icon' href='/img/favicons/main.webp')
         block styles
-            link(rel='stylesheet' href='https://necolas.github.io/normalize.css/latest/normalize.css')
             link(rel='stylesheet' href='/css/main.css')
             link(rel='stylesheet' href='/css/iconsfont.css')
     body
@@ -20,4 +19,3 @@ html(lang=lang)
             block content
         block scripts
             script(src='/js/main.js')
-

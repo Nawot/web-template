@@ -1,11 +1,11 @@
-extend /include/base
+extend /layouts/base
 append vars
     - lang = 'en'
     - title = 'I\'m template'
 block content
-    include /include/header
+    include /templates/header
     main.main
         section.hero(style='margin: 30px 0;')
             .wrapper
                 h1 Hi, I'm a template!
-    include /include/footer
+    include /templates/footer
